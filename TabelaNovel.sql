@@ -1,0 +1,40 @@
+CREATE DATABASE DB_T05429_BEATRIZ_FONTES;  # CRIAÇÃO DA BASE DE DADOS
+USE DB_T05429_BEATRIZ_FONTES;
+
+SHOW DATABASES;
+
+# CRIAÇÃO DA TABELA NOVELA
+CREATE TABLE NOVEL (
+	ID INT AUTO_INCREMENT PRIMARY KEY,
+    NAME VARCHAR(128) NOT NULL,
+    YEAR YEAR,
+    GENRE VARCHAR(64),
+    AUDIENCE VARCHAR(32)
+);
+
+# INSERINDO DADOS COM CAMPOS ESPECIFICADOS
+INSERT INTO NOVEL (NAME, YEAR, GENRE, AUDIENCE) VALUES
+('Avenida Brasil', 2012, 'Drama', '14 anos'),
+('O Clone', 2001, 'Romance', '12 anos'),
+('Senhora do Destino', 2004, 'Drama', '12 anos'),
+('Carrossel', 2012, 'Infantil', 'Livre'),
+('Verdades Secretas', 2015, 'Drama', '16 anos');
+
+# INSERINDO DADOS SEM CAMPOS ESPECIFICADOS
+INSERT INTO NOVEL VALUES
+(NULL, 'Chocolate com Pimenta', 2003, 'Comédia', 'Livre'),
+(NULL, 'Laços de Família', 2000, 'Romance', '12 anos'),
+(NULL, 'Pantanal', 2022, 'Drama', '16 anos'),
+(NULL, 'A Favorita', 2008, 'Suspense', '14 anos'),
+(NULL, 'Caminho das Índias', 2009, 'Drama', '12 anos');
+
+# EXERCÍCIOS DE SELECT
+SELECT * FROM NOVEL;
+
+SELECT NAME, YEAR FROM NOVEL;
+
+SELECT NAME, GENRE FROM NOVEL;
+
+SELECT * FROM NOVEL ORDER BY YEAR ASC;
+
+
