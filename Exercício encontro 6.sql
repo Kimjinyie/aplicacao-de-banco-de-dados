@@ -70,5 +70,22 @@ QUANTITY INT,
 TOTAL_VALUE DECIMAL(10, 2)
 );
 
+# INSERINDO DADOS COM CAMPOS ESPECIFICADOS
+INSERT INTO ORDER_TABLE (CUSTOMER_NAME, PRODUCT_NAME, QUANTITY, TOTAL_VALUE) VALUES
+('Lucas Martins', 'Mouse sem fio', 2, 179.80),
+('Mariana Costa', 'Cadeira ergonômica', 1, 759.00),
+('Pedro Almeida', 'Fone Bluetooth', 3, 389.70),
+('Juliana Ferreira', 'Cafeteira elétrica', 2, 319.00),
+('Rafael Oliveira', 'Teclado mecânico', 1, 219.90);
+
+# INSERINDO DADOS SEM CAMPOS ESPECIFICADOS
+INSERT INTO ORDER_TABLE VALUES
+(NULL, 'Camila Souza', 'Mochila executiva', 2, 299.80),
+(NULL, 'Gabriel Santos', 'Liquidificador', 1, 189.90),
+(NULL, 'Beatriz Lima', 'Garrafa térmica', 4, 258.00),
+(NULL, 'Felipe Rodrigues', 'Mesa dobrável', 2, 558.00),
+(NULL, 'Ana Carvalho', 'Luminária LED', 3, 224.70);
+
+SELECT * FROM ORDER_TABLE
 
 
