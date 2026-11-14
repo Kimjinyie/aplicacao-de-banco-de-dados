@@ -38,6 +38,30 @@ CITY VARCHAR(128) NOT NULL,
 EMAIL VARCHAR(200)
 );
 
+# INSERINDO DADOS COM CAMPOS ESPECIFICADOS
+INSERT INTO CUSTOMER (NAME, AGE, CITY, EMAIL) VALUES
+('Lucas Martins', 28, 'São Paulo', 'lucas@email.com'),
+('Mariana Costa', 34, 'Santos', 'mari@email.com'),
+('Pedro Almeida', 22, 'Curitiba', 'pedro@email.com'),
+('Juliana Ferreira', 41, 'Campinas', 'ju@email.com'),
+('Rafael Oliveira', 30, 'Rio de Janeiro', 'rafa@email.com');
+
+# INSERINDO DADOS SEM CAMPOS ESPECIFICADOS
+INSERT INTO CUSTOMER VALUES
+(NULL, 'Camila Souza', 26, 'Florianópolis', 'cami@email.com'),
+(NULL, 'Gabriel Santos', 37, 'Belo Horizonte', 'gabi@email.com'),
+(NULL, 'Beatriz Lima', 25, 'Recife', 'bia@email.com'),
+(NULL, 'Felipe Rodrigues', 45, 'Salvador', 'felipe@email.com'),
+(NULL, 'Ana Carvalho', 32, 'Porto Alegre', 'ana@email.com');
+
+SELECT * FROM CUSTOMER
+
+
+
+
+
+
+
 CREATE TABLE ORDER_TABLE (
 ID INT AUTO_INCREMENT PRIMARY KEY,
 CUSTOMER_NAME VARCHAR(128) NOT NULL,
