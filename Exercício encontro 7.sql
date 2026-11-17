@@ -63,6 +63,20 @@ SELECT * FROM PLAYER
 ORDER BY SALARY DESC
 LIMIT 5;
 
+SELECT * FROM PLAYER
+WHERE AGE > 18 AND SALARY > 100000
+ORDER BY SALARY DESC
+LIMIT 5;
+
+/*
+-- CONSULTA COM OR: RETORNA NA PESQUISA DADOS QUE CONTANHAM UM VALOR OU O OUTRO;
+SELECT * FROM PLAYER
+WHERE AGE < 25 OR SALARY < 100000;
+
+-- CONSULTA COM LIKE: RETORNA EXATAMENTE A LETRA, PALAVRA OU QUANTIDADE DE CARACTERES SOLICITADOS;
+SELECT * FROM PLAYER
+WHERE NAME LIKE 'G%';
+*/
 
 #---------------CRIAÇÃO DE TABELA TEAM---------------#
 CREATE TABLE TEAM (
@@ -110,7 +124,6 @@ SELECT * FROM TEAM
 ORDER BY FOUNDATION_YEAR DESC
 LIMIT 5;
 
-
 #---------------CRIAÇÃO DE TABELA MATCHES---------------#
 CREATE TABLE MATCHES (
 ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -154,6 +167,25 @@ CREATE USER 'beatriz_fontes'@'%' IDENTIFIED BY 'fontes_beatriz123';
 'senha' = é a senha onde o usuário deve informar para se conectar.
 */
 
+GRANT SELECT ON DB_T05429_BEATRIZ_FONTES.* TO 'beatriz_fontes'@'%';
+# Concede ao usuário a permissão de utilizar comandos de apenas leitura, sem poder alterar, adicionar ou excluir nada do banco de dados.
 
+GRANT ALL PRIVILEGES ON DB_T05429_BEATRIZ_FONTES.* TO 'beatriz_fontes'@'%';
+# Concede ao usuário a permissão total de comando para ler, alterar, adicionar ou excluir no banco de dados.
+
+FLUSH PRIVILEGES;
+# O comando é necessário para atualizar imediatamente as permissões/privilégios que foram alterados diretamente nas tabelas;
+
+#---------------CONTROLE DE TRANSAÇÕES---------------#
+
+START TRANSACTION;
+UPDATE PLAYER SET SALARY = 95000 WHERE ID = 5;
+ROLLBACK;
+# O ROLLBACK CANCELA AS ALTERAÇÕES, O SALÁRIO VOLTA A SER O QUE ERA ANTES DA MODIFICAÇÃO (100000).
+
+START TRANSACTION;
+UPDATE PLAYER SET SALARY = 95000 WHERE ID = 5;
+COMMIT;
+# DIFERENTE DO ROLLBACK, O COMMIT CONFIRMA AS ALTERAÇÕES DE MANEIRA QUE O ROLLBACK NÃO CONSEGUE MAIS REVERTER.
 
 
